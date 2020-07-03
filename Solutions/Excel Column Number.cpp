@@ -1,3 +1,6 @@
+
+//Time Complexity O(N) and Space Complexity O(1)
+
 int titleToNumber(string s) {
 
 	int sum = 0;
