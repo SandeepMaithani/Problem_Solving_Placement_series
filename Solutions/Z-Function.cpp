@@ -6,7 +6,7 @@ Application of the Z Algorithm is for the standard string matching problem of fi
 This can be done in O(n + m) time by using the Z Algorithm on the string T$S (that is, concatenating T, $ and S) where $ is any character that matches nothing or will not be a part of string .
 The indices i with Z[i] = m correspond to matches of T in S.
 
-Space Complexity :- O(n + m)
+Space Complexity :- O(n + m).
 
 */
 
