@@ -12,6 +12,47 @@ We are using queue for Traversal.
 
 */
 
+void topView(struct Node *root)
+{
+    if (root == NULL) return;
+
+    unordered_map<int, int>hashmap;
+    queue<pair<Node*, int>>helper;
+    int minLvl = 0, maxLvl = 0;
+
+    helper.push({root, 0});
+
+    while (!helper.empty()) {
+        Node* node = helper.front().first;
+        int level = helper.front().second;
+        helper.pop();
+
+        if (level > maxLvl) {
+            maxLvl = level;
+        }
+        else if (level < minLvl) {
+            minLvl = level;
+        }
+
+        if (hashmap.count(level) == 0) {
+            hashmap[level] = node -> data;
+        }
+
+        if (node -> left) {
+            helper.push({node -> left, level - 1});
+        }
+
+        if (node -> right) {
+            helper.push({node -> right, level + 1});
+        }
+    }
+
+    for (int i = minLvl; i <= maxLvl; i++) {
+        cout << hashmap[i] << " ";
+    }
+}
+
+
 
 /*
 
