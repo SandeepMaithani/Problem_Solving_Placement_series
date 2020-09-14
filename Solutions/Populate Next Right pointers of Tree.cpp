@@ -1,14 +1,76 @@
 /*
 
-Method 1 : Using recursion                         Verdict : Accepted
+Method 1 : Using nested loop                         Verdict : Accepted
 
 Complexity Analysis :
 
 Time complexity : O(N), where N is a number of nodes in the tree, since each node is visited at most twice.
 
-Space complexity : O(log(N)) in the best case of completely balanced tree and O(N) in the worst case of completely unbalanced tree, to keep a recursion stack.
+Space complexity : O(1), No extra space required.
 
 */
+
+class Solution {
+public:
+    Node* getNextNode(Node* root) {
+        Node* helper = root -> next;
+
+        while (helper) {
+            if (helper -> left) {
+                return helper -> left;
+            }
+            else if (helper -> right) {
+                return helper -> right;
+            }
+            helper = helper -> next;
+        }
+        return NULL;
+    }
+
+    Node* connect(Node* root) {
+
+        if (root == NULL) {
+            return root;
+        }
+
+        Node* helper = root;
+
+        while (helper) {
+            Node* levelHelper = helper;
+
+            while (levelHelper) {
+                if (levelHelper -> left) {
+                    if (levelHelper -> right) {
+                        levelHelper -> left -> next = levelHelper -> right;
+                    }
+                    else {
+                        levelHelper -> left -> next = getNextNode(levelHelper);
+                    }
+                }
+
+                if (levelHelper -> right) {
+                    levelHelper -> right -> next = getNextNode(levelHelper);
+                }
+
+                levelHelper = levelHelper -> next;
+            }
+
+            if (helper -> left) {
+                helper = helper -> left;
+            }
+            else if (helper -> right) {
+                helper = helper -> right;
+            }
+            else {
+                helper = getNextNode(helper);
+            }
+        }
+
+        return root;
+    }
+};
+
+
 
 /*
 
