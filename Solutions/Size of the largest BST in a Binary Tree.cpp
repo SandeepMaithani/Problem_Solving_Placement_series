@@ -1,12 +1,12 @@
 /*
 
-Method : using preorder traversal and checking state of each node                     Verdict : Accepted
+Method : using postorder traversal and checking state of each node                     Verdict : Accepted
 
 Complexity Analysis :
 
 Time Complexity: O(N), where N is the number of nodes in the BST. We will be visiting each and every node.
 
-Space Complexity: O(H). Where H is height of tree, which is occupied by our calling stack for the preorder traversal.
+Space Complexity: O(H). Where H is height of tree, which is occupied by our calling stack for the postorder traversal.
 
 */
 
