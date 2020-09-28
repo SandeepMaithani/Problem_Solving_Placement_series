@@ -12,7 +12,7 @@ Space Compelxity: O(n), space require to store the Temporary array.
 
 
 
-int merge(vector<int> &arr, vector<int> &temp, int left, int mid, int right) {
+long merge(vector<int> &arr, vector<int> &temp, int left, int mid, int right) {
 	int first, second, third;
 	long invCount = 0;
 
@@ -76,14 +76,27 @@ long countInversions(vector<int> arr) {
 }
 
 
+
+
 /*
 
-Method 1 : Brute force                          verdict : TLE
+Method 2 : Brute force                                      verdict : TLE
 
 Complexity Analysis:
 
-Time Complexity: O(n^2), Two nested loops are needed to traverse the array from start to end so the Time complexity is O(n^2).
+Time Complexity: O(N^2), Two nested loops are needed to traverse the array from start to end so the Time complexity is O(N*N).
 
 Space Compelxity:O(1), No extra space is required.
+
+*/
+
+
+
+/*
+
+Intution : -
+
+Traverse through the array and for every index find the number of smaller elements on its right side of the array.
+This can be done using a nested loop. Sum up the counts for all index in the array and print the sum.
 
 */
