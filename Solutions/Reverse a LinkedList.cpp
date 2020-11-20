@@ -4,24 +4,24 @@ Method 1 : Using Iteration       Verdict Accepted
 
 Complexity analysis
 
-Time complexity : O(n). Assume that nn is the list's length, the time complexity is O(n).
+Time complexity : O(n). Assume that N is the list's length, the time complexity is O(N).
 
 Space complexity : O(1).
 
 */
 
 ListNode* reverseList(ListNode* head) {
-    ListNode* prev = NULL;
-    ListNode* trav = head;
+	ListNode* prev = NULL;
+	ListNode* trav = head;
 
-    while (trav) {
-        ListNode* next = trav -> next;
-        trav -> next = prev;
-        prev = trav;
-        trav = next;
-    }
+	while (trav) {
+		ListNode* next = trav -> next;
+		trav -> next = prev;
+		prev = trav;
+		trav = next;
+	}
 
-    return prev;
+	return prev;
 
 }
 
@@ -43,13 +43,13 @@ idea : key idea here is traverse list to end once we get the node with next as N
 
 ListNode* reverseList(ListNode* head) {
 
-    if (!head || !head -> next) {                 //It will take care of empty list,list with one element
-        return head;                              //and also return last node
-    }
+	if (!head || !head -> next) {                 //It will take care of empty list,list with one element
+		return head;                              //and also return last node
+	}
 
-    ListNode* revhead = reverseList(head -> next);
-    head -> next -> next = head;
-    head -> next = NULL;
+	ListNode* revhead = reverseList(head -> next);
+	head -> next -> next = head;
+	head -> next = NULL;
 
-    return revhead;
+	return revhead;
 }
